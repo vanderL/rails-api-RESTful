@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :categorie, :defaults => { :format => :json } do
-    resources :product, :defaults => { :format => :json }
+  namespace :api do
+    resources :categorie, :defaults => { :format => :json } do
+      resources :product, :defaults => { :format => :json }
+    end
   end
+
+  ## http://localhost:3000/api/categorie/1/product/1
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

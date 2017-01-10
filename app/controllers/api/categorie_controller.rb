@@ -1,4 +1,4 @@
-class CategorieController < ApplicationController
+class Api::CategorieController < Api::BaseController
   def index
         @categories = Categorie.all
         respond_to do |format|
