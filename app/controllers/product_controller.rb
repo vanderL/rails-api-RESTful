@@ -19,6 +19,17 @@ class ProductController < ApplicationController
 
   end
 
+  def destroy
+        @product = Product.find(params[:id])
+
+        @product.destroy
+
+        respond_to do |format|
+            # format.json { render json: @product }
+            format.json { head :no_content }
+        end
+    end
+
 
   private
 

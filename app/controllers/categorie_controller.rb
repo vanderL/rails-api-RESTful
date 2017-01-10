@@ -1,9 +1,8 @@
 class CategorieController < ApplicationController
   def index
-    @categories = Categorie.all
-
+        @categories = Categorie.all
         respond_to do |format|
-            format.json { render json: @categories }
+              format.json { render json: @categories }
         end
   end
 
@@ -13,6 +12,17 @@ class CategorieController < ApplicationController
         respond_to do |format|
             format.json { render json: @categorie }
         end
+    end
+
+    def destroy
+          @categorie = Categorie.find(params[:id])
+
+          @categorie.destroy
+
+          respond_to do |format|
+              # format.json { render json: @product }
+              format.json { head :no_content }
+          end
     end
 
   private
